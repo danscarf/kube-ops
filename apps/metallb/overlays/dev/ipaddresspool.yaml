@@ -2,6 +2,7 @@ apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
   name: dev-ipaddresspool
+  namespace: metallb-system
 spec:
   protocol: layer2
   addresses:
