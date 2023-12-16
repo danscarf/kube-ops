@@ -4,5 +4,5 @@ resources:
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-patches:
-- path: loadbalancer-patch.yaml
+# patches:
+# - path: loadbalancer-patch.yaml
