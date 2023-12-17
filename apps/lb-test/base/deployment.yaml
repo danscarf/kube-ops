@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: lb-test
+spec:
+  selector:
+    matchLabels:
+      appname: lb-test
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        appname: lb-test
+    spec:
+      containers:
+      - name: httpd
+        image: httpd@sha256:ddd75f781cafa37cc5a5251723ca93903258a04e93110225e7a4059718d58ccb
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: "256Mi"
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+        securityContext:
+          runAsNonRoot: true
+          readOnlyRootFilesystem: true
+          runAsUser: 1000
+          runAsGroup: 3000
+          fsGroup: 2000
