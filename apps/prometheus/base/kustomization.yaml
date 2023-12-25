@@ -4,4 +4,7 @@ kind: Kustomization
 namespace: prometheus
 resources:
 - namespace.yaml
+- clusterrole.yaml
+- clusterrolebinding.yaml
+- serviceaccount.yaml
 - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/bundle.yaml
