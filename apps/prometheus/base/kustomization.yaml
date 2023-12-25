@@ -11,3 +11,6 @@ resources:
 - servicemonitor.yaml
 - service.yaml
 - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/bundle.yaml
+- example-app.yaml
+- example-service.yaml
+- example-servicemonitor.yaml
