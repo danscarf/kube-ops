@@ -1,0 +1,14 @@
+resources:
+- github.com/kubernetes/ingress-nginx/deploy/static/provider/baremetal?ref=controller-v1.9.5
+- configs/tcp-services.yaml
+- configs/udp-services.yaml
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+patches:
+- path: service.yaml
+  target:
+    kind: Service
+    name: ingress-nginx-controller
+    version: v1
+- path: configs/nginx.conf.yaml
