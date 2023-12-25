@@ -3,12 +3,15 @@ kind: ServiceMonitor
 metadata:
   name: prometheus
   namespace: prometheus
+  labels:
+    prometheus: prometheus
 spec:
   selector:
     matchLabels:
-      app: prometheus
+      prometheus: prometheus
   endpoints:
   - port: web
     # path: /metrics
     interval: 30s
     scrapeTimeout: 10s
+  

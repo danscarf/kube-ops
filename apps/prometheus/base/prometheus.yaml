@@ -12,3 +12,4 @@ spec:
   serviceMonitorSelector:
     matchExpressions:
       - {key: team, operator: In, values: [frontend]}
+      - {key: prometheus, operator: In, values: [prometheus]}
