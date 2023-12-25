@@ -9,6 +9,6 @@ spec:
     requests:
       memory: 400Mi
   enableAdminAPI: false
-serviceMonitorSelector:
-  matchLabels:
-    team: frontend
+  serviceMonitorSelector:
+    matchLabels:
+      team: frontend
