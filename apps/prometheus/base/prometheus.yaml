@@ -10,6 +10,8 @@ spec:
       memory: 400Mi
   enableAdminAPI: false
   serviceMonitorSelector:
-    matchExpressions:
-      - {key: team, operator: In, values: [frontend]}
-      - {key: prometheus, operator: In, values: [prometheus]}
+    matchLabels:
+      prometheus: prometheus
+    # matchExpressions:
+      # - {key: team, operator: In, values: [frontend]}
+      # - {key: prometheus, operator: In, values: [prometheus]}
