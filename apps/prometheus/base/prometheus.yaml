@@ -10,5 +10,5 @@ spec:
       memory: 400Mi
   enableAdminAPI: false
   serviceMonitorSelector:
-    matchLabels:
-      team: frontend
+    matchExpressions:
+      - {key: team, operator: In, values: [frontend]}
