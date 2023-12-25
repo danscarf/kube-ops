@@ -4,6 +4,7 @@ metadata:
   name: example-app
   labels:
     team: frontend
+    monitoring: "true"
 spec:
   selector:
     matchLabels:

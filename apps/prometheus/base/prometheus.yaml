@@ -11,7 +11,4 @@ spec:
   enableAdminAPI: false
   serviceMonitorSelector:
     matchLabels:
-      prometheus: prometheus
-    # matchExpressions:
-      # - {key: team, operator: In, values: [frontend]}
-      # - {key: prometheus, operator: In, values: [prometheus]}
+      monitoring: "true"
