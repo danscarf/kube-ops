@@ -6,9 +6,9 @@ metadata:
 spec:
   selector:
     matchLabels:
-      prometheus: prometheus
+      app: prometheus
   endpoints:
   - port: web
-    path: /metrics
+    # path: /metrics
     interval: 30s
     scrapeTimeout: 10s
