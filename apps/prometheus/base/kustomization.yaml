@@ -8,5 +8,6 @@ resources:
 - clusterrolebinding.yaml
 - serviceaccount.yaml
 - prometheus.yaml
+- servicemonitor.yaml
 - service.yaml
 - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.70.0/bundle.yaml
