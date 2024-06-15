@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sonarqube-postgresql
+  namespace: sonarqube
+spec:
+  template:
+    spec:
+      containers:
+        - name: sonarqube-postgresql 
+          image: docker.io/bitnami/postgresql:11.19.0-debian-11-r8@sha256:2537df5b94fecd97d86fcfb5b1760f441e851f3d2aab55512d077df085d2b050
