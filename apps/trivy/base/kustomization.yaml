@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Trivy Operator
+
+# Metrics
+resources:
+- https://github.com/aquasecurity/trivy-operator/raw/v0.18.2/deploy/static/trivy-operator.yaml
+- https://github.com/aquasecurity/trivy-operator/raw/v0.18.2/deploy/static/components/metrics/metrics.yaml
+
+# Patch ServiceMonitor to use the correct namespace
+patches:
+ - target:
+      kind: ServiceMonitor
+      name: trivy-operator
+   path: servicemonitor-patch.yaml
+ - target:
+      kind: Service
+      name: trivy-operator
+   path: service-patch.yaml
