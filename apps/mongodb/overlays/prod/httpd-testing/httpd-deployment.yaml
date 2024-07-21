@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: mongodb
+spec:
+  selector:
+    matchLabels:
+      appname: httpd-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        appname: httpd-deployment
+    spec:
+      containers:
+      - name: httpd
+        image: httpd:2.4
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: "256Mi"
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"

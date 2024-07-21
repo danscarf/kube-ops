@@ -1,0 +1,11 @@
+apiVersion: actions.github.com/v1alpha1
+kind: AutoscalingRunnerSet
+metadata:
+  name: arc-runner-set
+  namespace: arc-runners
+spec:
+  template:
+    spec:
+      containers:
+      - name: runner
+        image: ghcr.io/actions/actions-runner:2.322.0@sha256:65a10c6619cfe33d9b50a338bfbb39d7fd72907c45df758020913e6e6ce00d7a 

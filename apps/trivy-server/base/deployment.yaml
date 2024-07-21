@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trivy-server
+  namespace: trivy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trivy-server
+  template:
+    metadata:
+      labels:
+        app: trivy-server
+    spec:
+      containers:
+        - name: trivy
+          image: aquasec/trivy:0.48.3
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+          volumeMounts:
+            - name: trivy-cache-volume
+              mountPath: /root/.cache/
+          command: ["trivy", "image", "python:3.4-alpine"]
+      volumes:
+        - name: trivy-cache-volume
+          hostPath:
+            path: $HOME/Library/Caches

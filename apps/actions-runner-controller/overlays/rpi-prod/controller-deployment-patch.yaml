@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: arc-controller
+  namespace: arc-systems
+spec:
+  template:
+    spec:
+      containers:
+      - name: manager
+        image: ghcr.io/actions/gha-runner-scale-set-controller:0.10.1-1e10417@sha256:c5cb677be7483b1e74d36fc2fa5295e26db01fbbc90d7daeed7522342fab512e
+        env:
+        - name: CONTROLLER_MANAGER_CONTAINER_IMAGE
+          value: ghcr.io/actions/gha-runner-scale-set-controller:0.10.1-1e10417@sha256:c5cb677be7483b1e74d36fc2fa5295e26db01fbbc90d7daeed7522342fab512e 

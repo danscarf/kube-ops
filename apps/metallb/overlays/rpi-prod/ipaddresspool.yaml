@@ -1,0 +1,9 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: rpi-prod-ipaddresspool
+  namespace: metallb-system
+spec:
+  protocol: layer2
+  addresses:
+    - 10.0.40.90-10.0.40.110

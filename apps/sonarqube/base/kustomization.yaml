@@ -6,7 +6,7 @@ namespace: sonarqube
 helmCharts:
 - name: sonarqube
   repo: https://SonarSource.github.io/helm-chart-sonarqube
-  version: "~8" # Get the latest version in the 8.x series for Sonarqube 8 compatibility
+  version: "~10" # Get the latest version in the 10.x series for Sonarqube 9 compatibility
   releaseName: sonarqube # The name you want to give to your Helm release
   namespace: sonarqube # The namespace to install into
   valuesFile: values.yaml # The file containing the values you want to override
