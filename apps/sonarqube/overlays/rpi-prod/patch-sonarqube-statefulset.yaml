@@ -8,6 +8,6 @@ spec:
     spec:
       containers:
         - name: sonarqube
-          image: docker.io/sonarqube:9.9.5-community@sha256:11ddd66bdeee203327c444af17252075284a0b6b7db24e5aa1d3cd48eadd7681
+          image: docker.io/sonarqube:10.7.0-community@sha256:7c4cb78a7c5c5d0a5b1cfd7e7b77b54f42d233b6f289d3c9fbc93c80259dc7a5
 
 

@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-mongo-service
+  namespace: mongodb
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  selector:
+    app: docupload-mongodb-svc
+  loadBalancerIP: 10.0.40.72
+  
+ 

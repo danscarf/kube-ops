@@ -1,0 +1,25 @@
+---
+apiVersion: mongodbcommunity.mongodb.com/v1
+kind: MongoDBCommunity
+metadata:
+  name: docupload-mongodb
+spec:
+  members: 1
+  type: ReplicaSet
+  version: "7.0.12"
+  security:
+    authentication:
+      modes: ["SCRAM"]
+  users:
+    - name: docupload-admin
+      db: admin
+      passwordSecretRef:
+        name: docupload-user-password
+      roles:
+        - name: clusterAdmin
+          db: admin
+        - name: userAdminAnyDatabase
+          db: admin
+      scramCredentialsSecretName: my-scram
+  additionalMongodConfig:
+    storage.wiredTiger.engineConfig.journalCompressor: zlib

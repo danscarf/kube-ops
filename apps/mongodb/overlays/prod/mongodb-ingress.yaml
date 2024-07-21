@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-ingress
+  namespace: mongodb
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "TCP"
+    # acme.cert-manager.io/http01-edit-in-place: "true"
+    # cert-manager.io/cluster-issuer: "cloudflare-issuer-staging"
+spec:
+  rules:
+    - host: mongo.danscarf.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: docupload-mongodb-svc
+                port:
+                  number: 27017
