@@ -6,3 +6,4 @@ resources:
 - openclaw-namespace.yaml
 - openclaw-instance.yaml
 - openclaw-secrets.yaml
+- ingress.yaml
