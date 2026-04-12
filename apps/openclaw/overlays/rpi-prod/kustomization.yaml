@@ -5,3 +5,4 @@ resources:
 - ./../../base
 - openclaw-namespace.yaml
 - openclaw-instance.yaml
+- openclaw-secrets.yaml
