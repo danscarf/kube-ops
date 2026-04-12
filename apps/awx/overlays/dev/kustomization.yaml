@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - ../../base
 - awx-admin-secret.yaml
+- ingress.yaml
 patches:
 - path: operator-patch.yaml
 - path: awx-cr-patch.yaml

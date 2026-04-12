@@ -1,0 +1,21 @@
+apiVersion: openclaw.rocks/v1alpha1
+kind: OpenClawInstance
+metadata:
+  name: openclaw
+  namespace: openclaw
+spec:
+  envFrom:
+  - secretRef:
+      name: openclaw-secrets
+  config:
+    strategy: merge
+    raw:
+      agents:
+        defaults:
+          model:
+            primary: "openrouter/qwen/qwen3-coder-480b:free"
+  storage:
+    persistence:
+      enabled: true
+      size: 2Gi
+      storageClass: longhorn
