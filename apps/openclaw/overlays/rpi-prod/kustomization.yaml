@@ -7,3 +7,4 @@ resources:
 - openclaw-instance.yaml
 - openclaw-secrets.yaml
 - ingress.yaml
+- networkpolicy-ingress.yaml
