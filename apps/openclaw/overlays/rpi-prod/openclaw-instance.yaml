@@ -8,7 +8,6 @@ spec:
   - secretRef:
       name: openclaw-secrets
   config:
-    strategy: merge
     raw:
       agents:
         defaults:
