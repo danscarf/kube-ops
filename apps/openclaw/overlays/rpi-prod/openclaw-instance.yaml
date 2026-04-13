@@ -9,6 +9,11 @@ spec:
       name: openclaw-secrets
   config:
     raw:
+      gateway:
+        controlUi:
+          allowedOrigins:
+          - "http://openclaw.home"
+          - "https://openclaw.home"
       agents:
         defaults:
           model:
