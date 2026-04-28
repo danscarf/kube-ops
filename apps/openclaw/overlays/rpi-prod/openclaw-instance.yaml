@@ -24,6 +24,7 @@ spec:
       models:
         providers:
           ollama:
+            timeout: 300
             baseUrl: "http://10.0.2.248:11434"
             apiKey: "ollama-local"
             api: "ollama"
