@@ -17,7 +17,35 @@ spec:
       agents:
         defaults:
           model:
-            primary: "openrouter/qwen/qwen3-coder:free"
+            primary: "ollama/gemma4:e4b"
+          models:
+            ollama: {}
+      models:
+        providers:
+          ollama:
+            baseUrl: "http://10.0.2.248:11434"
+            apiKey: "ollama-local"
+            api: "ollama"
+            models:
+            - id: "gemma4:e4b"
+              name: "Gemma 4 E4B"
+              reasoning: false
+              input: ["text"]
+              cost:
+                input: 0
+                output: 0
+                cacheRead: 0
+                cacheWrite: 0
+              contextWindow: 65536
+              maxTokens: 8192
+  networkPolicy:
+    additionalEgress:
+    - to:
+      - ipBlock:
+          cidr: 10.0.2.248/32
+      ports:
+      - port: 11434
+        protocol: TCP
   storage:
     persistence:
       enabled: true
