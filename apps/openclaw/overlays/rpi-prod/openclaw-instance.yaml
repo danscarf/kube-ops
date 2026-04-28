@@ -7,6 +7,11 @@ spec:
   envFrom:
   - secretRef:
       name: openclaw-secrets
+  image:
+    repository: ghcr.io/openclaw/openclaw
+    tag: 2026.4.26
+    digest: sha256:9e055aedeb20dfdee46e3c0b085375cd64df0796ed2f804448cd2f07c1782364
+    pullPolicy: IfNotPresent
   config:
     raw:
       gateway:
