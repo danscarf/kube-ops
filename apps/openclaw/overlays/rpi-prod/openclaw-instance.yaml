@@ -10,6 +10,7 @@ spec:
   config:
     raw:
       gateway:
+        mode: local
         controlUi:
           allowedOrigins:
           - "http://openclaw.home"
