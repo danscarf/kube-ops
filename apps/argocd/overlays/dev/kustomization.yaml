@@ -17,3 +17,18 @@ patches:
     metadata:
       name: ignored
     $patch: delete
+
+# Preserve --enable-helm (kustomize overlays render Helm charts) and pin resource tracking to
+# label. ArgoCD 3.0 flips the default to annotation tracking; pinning label keeps existing
+# resources from being re-adopted. Strategic-merge into the upstream argocd-cm data map.
+- target:
+    kind: ConfigMap
+    name: argocd-cm
+  patch: |-
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: argocd-cm
+    data:
+      kustomize.buildOptions: --enable-helm
+      application.resourceTrackingMethod: label
