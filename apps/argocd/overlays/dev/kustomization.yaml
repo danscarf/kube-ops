@@ -1,3 +1,19 @@
 resources:
 - ./../../base
 - ingress.yaml
+
+# Strip the upstream ArgoCD NetworkPolicies. The dev cluster runs k3s (kube-router enforces
+# NetworkPolicy); these policies block the application-controller <-> repo-server traffic and
+# break ArgoCD on this cluster. Removing them here keeps live state and git in agreement so
+# the self-managing argocd-dev app stays Synced instead of re-adding them on every sync.
+patches:
+- target:
+    group: networking.k8s.io
+    version: v1
+    kind: NetworkPolicy
+  patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      name: ignored
+    $patch: delete
